@@ -19,6 +19,12 @@
       remote_src: true
       creates: /var/www/nextcloud/occ
 
+  - name: configure s3
+    template: 
+      src: storage.config.php.j2
+      dest: /var/www/nextcloud/config/storage.config.php
+    when: s3_enabled|bool
+
   - name: set permissions
     script: permissions.sh
     environment:
@@ -88,9 +94,9 @@
     with_items: "{{ nc_mail_config }}"
     when: nc_configure_mail|bool
 
-  - name: copy defaults/config.json to /tmp 
-    copy:
-      src: "{{ role_path }}/defaults/config.json"
+  - name: copy config.json to /tmp 
+    template:
+      src: config.json.j2
       dest: /tmp/nextcloud.config.json
       owner: "{{ web_user[ansible_distribution] }}"
       mode: 0600
