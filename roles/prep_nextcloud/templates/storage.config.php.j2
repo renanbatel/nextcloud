@@ -1,0 +1,18 @@
+<?php
+
+$CONFIG = [
+    'objectstore' => [
+        'class' => '\\OC\\Files\\ObjectStore\\S3',
+        'arguments' => [
+            'bucket' => '{{ s3_bucket }}',
+            'autocreate' => {{ s3_autocreate }},
+            'key' => '{{ s3_key }}',
+            'secret' => '{{ s3_secret }}',
+            'hostname' => '{{ s3_hostname }}',
+            'region' => '{{ s3_region }}',
+            'port' => {{ s3_port }},
+            'use_ssl' => {{ s3_use_ssl }},
+            'use_path_style'=> {{ s3_use_path_style }}
+        ],
+    ],
+];

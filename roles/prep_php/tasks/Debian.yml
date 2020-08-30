@@ -33,11 +33,15 @@
       - php{{ php_version }}-json
       - php{{ php_version }}-bz2
       - php{{ php_version }}-ldap
+      - php{{ php_version }}-gmp
+      - php{{ php_version }}-bcmath
+      - php{{ php_version }}-common
+      - php{{ php_version }}-cli
       - php-apcu
       - php-imagick
       - php-smbclient
       - php-redis
-      - php-imagick
+      - php-pear
     autoremove: true
     state: latest
 

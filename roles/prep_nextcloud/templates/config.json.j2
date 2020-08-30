@@ -7,7 +7,7 @@
             "timeout": "0.0"
         },
         "memcache.locking": "\\OC\\Memcache\\Redis",
-        "filelocking.enabled": "true",
+        "filelocking.enabled": {{ "false" if s3_enabled|bool else "true" }},
         "enable_previews": "true",
         "enabledPreviewProviders": [
             "OC\\Preview\\PNG",
